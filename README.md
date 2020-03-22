@@ -6,6 +6,15 @@
 
 ---
 
+- to install svelte / sapper new proj
+  `npx degit sveltejs/template svelteplay; cd svelteplay; code . ; npm i`
+
+---
+
 ## Move to sapperland Admin
 
 - add Fauna DB
+
+## Resources
+
+- [Build Markdown editor](https://dev.to/karkranikhil/build-markdown-editor-using-svelte-in-10-minutes-1c69)

@@ -1,0 +1,27 @@
+<svg width="38.762" height="38.762" xmlns="http://www.w3.org/2000/svg">
+ <style type="text/css">
+  <![CDATA[
+       .blank-page {
+         fill: green;
+       }
+	   .line {
+		   fill: green;
+		   strke: green;
+		}
+    ]]>
+ </style>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1" class="blank-page">
+   <path id="svg_2" d="m32.724,0l-26.686,0c-0.864,0 -1.566,0.703 -1.566,1.565l0,35.633c-0.001,0.861 0.701,1.564 1.566,1.564l17.268,0c0.545,0 1.152,-0.26 1.587,-0.641c0.097,-0.075 0.196,-0.168 0.294,-0.297l8.472,-11.228c0.365,-0.483 0.632,-1.272 0.632,-1.88l0,-23.151c0,-0.862 -0.704,-1.565 -1.567,-1.565zm-2.161,28.1l-5.69,7.544l0,-9.359l7.062,0l-1.372,1.815zm2.16,-3.381l-7.851,0c-0.865,0 -1.566,0.702 -1.566,1.565l0,10.912l-17.268,0l0,-35.631l26.685,0c-0.001,0 -0.001,23.154 0,23.154z"/>
+  </g>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_4" y2="11.312641" x2="30.568501" y1="11.312641" x1="9.693501" stroke-width="1.5" stroke="green" fill="none" class="line"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="15.612721" x2="30.568501" y1="15.612721" x1="9.693501" stroke-width="1.5" stroke="green" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_6" y2="19.55339" x2="30.568501" y1="19.55339" x1="9.693501" stroke-width="1.5" stroke="green" fill="none"/>
+ </g>
+</svg>

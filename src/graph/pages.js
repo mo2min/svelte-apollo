@@ -30,3 +30,11 @@ export const FIND_PAGE = gql`
     }
   }
 `;
+
+export const UPDATE_PAGE = gql`
+  mutation updatePage($id: ID!, $page: String!, $content: String!) {
+    updatePage(id: $id, data: { page: $page, content: $content }) {
+      _id
+    }
+  }
+`;

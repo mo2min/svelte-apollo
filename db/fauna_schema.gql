@@ -1,0 +1,23 @@
+type Site @collection(name: "sites") {
+  name: String! @unique
+  description: String
+  handle: String!
+}
+
+type Outline @collection(name: "outlines") {
+  title: String!
+  text: String
+  type: String
+}
+
+type Page @collection(name: "Pages") {
+  page: String!
+  content: String
+}
+
+type Query {
+  allSites: [Site!]! @index(name: "all_sites")
+  allOutlines: [Outline!]! @index(name: "all_outlines")
+  allPages: [Page!]! @index(name: "all_pages")
+  sayHello: String! @resolver(name: "sayHello")
+}
