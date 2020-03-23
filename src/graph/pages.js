@@ -38,3 +38,11 @@ export const UPDATE_PAGE = gql`
     }
   }
 `;
+
+export const DELETE_PAGE =gql`
+mutation deletePage($id: ID!) {
+  deletePage(id: $id) {
+    _id
+  }
+}
+`;

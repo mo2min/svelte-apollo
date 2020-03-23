@@ -1,9 +1,11 @@
 <script>
-  import { getClient, query } from "svelte-apollo";
-  import { ALL_PAGES } from "../../graph/pages";
-  let result = query(getClient(), { query: ALL_PAGES });
+  import { getClient, query, mutate } from "svelte-apollo";
+  import { ALL_PAGES, DELETE_PAGE } from "../../graph/pages";
+  let client = getClient();
+  let result = query(client, { query: ALL_PAGES });
   let src = "images/blank-page.svg";
   let greenPage = "images/blank-page-green.svg";
+
 </script>
 
 <style>
@@ -27,7 +29,15 @@
           {/if}
           <br />
           <b>{page}</b>
+          
         </a>
+        <div on:click={async () => {
+          await mutate(client, {
+            mutation: DELETE_PAGE,
+            variables: { id: _id }
+          });
+          location.reload();
+        }}>DELETE</div>
       </div>
     {/each}
 
