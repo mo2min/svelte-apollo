@@ -3,20 +3,16 @@
   import { getClient, mutate } from "svelte-apollo";
   import { ADD_PAGE } from "../../graph/pages";
   let page = "";
+  const dispatch = createEventDispatcher();
 
   async function handleCreate() {
     console.log(page);
-    try {
-      await mutate(getClient(), {
-        mutation: ADD_PAGE,
-        variables: { page: page, content: '' }
-      });
-      page = '';
-      location.reload();
-    } catch(error) {
-      // TODO
-      console.error(error);
-    }
+    await mutate(getClient(), {
+      mutation: ADD_PAGE,
+      variables: { page: page, content: '' }
+    });
+    dispatch('PAGE_ADDED_EVT', page );
+    page = '';
 	}
 </script>
 
