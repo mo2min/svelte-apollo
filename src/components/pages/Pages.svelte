@@ -2,6 +2,7 @@
   import { getClient, query, mutate } from "svelte-apollo";
   import { DELETE_PAGE } from "../../graph/pages";
   import { createEventDispatcher } from "svelte";
+  import { Confirm } from "svelte-confirm";
 
   export let pages;
   const dispatch = createEventDispatcher();
@@ -10,14 +11,13 @@
   let src = "images/blank-page.svg";
   let greenPage = "images/blank-page-green.svg";
 
-  async function handleDelete(_id){
-    await mutate( client, {
+  async function handleDelete(_id) {
+    await mutate(client, {
       mutation: DELETE_PAGE,
       variables: { id: _id }
     });
-    dispatch('PAGE_DELETED_EVT' );
+    dispatch("PAGE_DELETED_EVT");
   }
-
 </script>
 
 <style>
@@ -38,9 +38,15 @@
         {/if}
         <br />
         <b>{page}</b>
-        
+
       </a>
-      <div on:click={()=>handleDelete(_id)}>DELETE</div>
+      <Confirm let:confirm={confirmThis}>
+        <div
+          on:click={() => confirmThis(handleDelete, _id)}
+          class="text-red-500 font-bold">
+          DELETE
+        </div>
+      </Confirm>
     </div>
   {/each}
 </div>
