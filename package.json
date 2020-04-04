@@ -25,6 +25,7 @@
     "apollo-boost": "^0.4.7",
     "graphql": "^14.5.8",
     "marked": "^0.8.0",
+    "nunjucks": "^3.2.1",
     "sirv-cli": "^0.4.4",
     "svelte-apollo": "^0.3.0",
     "svelte-confirm": "0.0.0",

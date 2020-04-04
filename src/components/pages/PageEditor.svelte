@@ -13,7 +13,6 @@
 {#await $result}
   <p>.. loading</p>
 {:then data}
-  {(console.log(data), '')}
   <!--
     <span on:click={() => console.log(data.data.findPageByID.content)}>
       Log

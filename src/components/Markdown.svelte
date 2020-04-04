@@ -1,6 +1,24 @@
 <script>
   import marked from "marked";
   import { createEventDispatcher } from "svelte";
+  import nunjucks from "nunjucks";
+
+  nunjucks.configure({ autoescape: true });
+
+  const nunme = function(what) {
+    let returned = "";
+    try {
+      returned = nunjucks.renderString(what, {
+        data: { title: "خراشي", testing: "تجربة" },
+        count: 10
+      });
+    } catch (error) {
+      //console.error(error);
+      returned = what;
+    }
+    return returned;
+  };
+
   const dispatch = createEventDispatcher();
   export let md;
   export let title;
@@ -68,7 +86,7 @@
 
     <div class="right-panel">
       <div class="output">
-        {@html marked(md, { breaks: true })}
+        {@html marked(nunme(md), { breaks: true })}
       </div>
     </div>
   </div>
