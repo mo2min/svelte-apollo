@@ -8,12 +8,7 @@
 
 - to install svelte / sapper new proj
   `npx degit sveltejs/template svelteplay; cd svelteplay; code . ; npm i`
-
----
-
-## Move to sapperland Admin
-
-- add Fauna DB
+- Fauna DB
 
 ## Resources
 
