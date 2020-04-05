@@ -10,6 +10,8 @@
   `npx degit sveltejs/template svelteplay; cd svelteplay; code . ; npm i`
 - Fauna DB
 
+## Moving to git repo for storing content and data
+
 ## Resources
 
 - [Build Markdown editor](https://dev.to/karkranikhil/build-markdown-editor-using-svelte-in-10-minutes-1c69)
