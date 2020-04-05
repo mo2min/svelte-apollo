@@ -1,13 +1,13 @@
 import ApolloClient from "apollo-boost";
 
-export const client = new ApolloClient({
+export const gitclient = new ApolloClient({
   // uri: "https://api.graphqlplaceholder.com/",
-  uri: "https://graphql.fauna.com/graphql",
+  uri: "https://api.github.com/graphql",
   request: (operation) => {
     operation.setContext({
       headers: {
         //authorization: `Bearer fnADf6-pRAACAuz6tgsIthhD6mg_OPXmSu3YXkqu`
-        authorization: `Bearer fnADgd8KwmACC1ynjgxPDjFn_B4Fcse27yGKGUU6`,
+        authorization: `Bearer 330455b8c34538339d2dafaf02fe0d7439273bae`, // github
       },
     });
   },

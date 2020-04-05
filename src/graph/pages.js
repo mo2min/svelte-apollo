@@ -39,10 +39,41 @@ export const UPDATE_PAGE = gql`
   }
 `;
 
-export const DELETE_PAGE =gql`
-mutation deletePage($id: ID!) {
-  deletePage(id: $id) {
-    _id
+export const DELETE_PAGE = gql`
+  mutation deletePage($id: ID!) {
+    deletePage(id: $id) {
+      _id
+    }
   }
-}
+`;
+
+export const INDEX_QUERY = gql`
+  query index {
+    repository(owner: "fireb1003", name: "alex24-live") {
+      id
+      content: object(expression: "master:index.md") {
+        ... on Blob {
+          text
+        }
+      }
+      config: object(expression: "master:config.json") {
+        ... on Blob {
+          text
+        }
+      }
+      pages: object(expression: "master:pages") {
+        ... on Tree {
+          entries {
+            name
+            object {
+              ... on Blob {
+                text
+                byteSize
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `;

@@ -5,8 +5,9 @@
   import PageEditor from "./components/pages/PageEditor.svelte";
   import { setClient } from "svelte-apollo";
   import { client } from "./graph/graph";
+  import { gitclient } from "./graph/gitgraph";
+  setClient(gitclient);
 
-  setClient(client);
   const routes = {
     "/": Index,
     "/page/:_id": PageEditor

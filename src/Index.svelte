@@ -1,20 +1,23 @@
 <script>
   import { getClient, query } from "svelte-apollo";
-  import { HELLO } from "./graph/graph";
   import SelectSite from "./components/sites/Select.svelte";
   import AddPage from "./components/pages/AddPage.svelte";
   import Pages from "./components/pages/Pages.svelte";
-  import { ALL_PAGES } from "./graph/pages";
+  import { INDEX_QUERY } from "./graph/pages";
+  import { gitclient } from "./graph/gitgraph";
 
-  let client = getClient();
-  let result = query(client, { query: HELLO });
-  let pages_q = getPages();
+  let sitename, pageconent;
 
-  function getPages() {
-    return query( client, { query: ALL_PAGES , fetchPolicy: 'network-only'});
+  async function init() {
+    let { data } = await gitclient.query({ query: INDEX_QUERY });
+    pageconent = data.repository.content.text;
+    sitename = JSON.parse(data.repository.config.text).sitename;
+    console.log(data);
   }
+  init();
 </script>
 
+{#if false}
   <div
     class="flex bg-secondary text-white text-sm font-bold px-4 py-3"
     role="alert">
@@ -28,33 +31,18 @@
         20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141
         0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467
         6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141
-        1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20
-        8.309 20z" />
+        1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365
+        20 8.309 20z" />
     </svg>
+
     <p class="flex-auto justify-center">
       Svelte + Apollo Client + Tailwind = Magic ! 🔮
     </p>
   </div>
 
-  <div>
-    {#await $result}
-      <p>.. loading</p>
-    {:then data}
-      {(console.log(data), '')}
-      <h2>{data.data.sayHello}</h2>
-    {:catch e}
-      {e}
-    {/await}
-  </div>
-
   <SelectSite />
+{/if}
 
-  {#await $pages_q}
-    <p>.. loading</p>
-  {:then data}
-  <Pages pages={data.data.allPages.data} on:PAGE_DELETED_EVT={()=>{pages_q= getPages()}}/>
-    {:catch e}
-    {e}
-  {/await}
-<hr />
-<AddPage on:PAGE_ADDED_EVT={()=>{pages_q= getPages()}}/>
+<h1>{sitename}</h1>
+
+<p>{pageconent}</p>
