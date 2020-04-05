@@ -6,8 +6,7 @@ export const gitclient = new ApolloClient({
   request: (operation) => {
     operation.setContext({
       headers: {
-        //authorization: `Bearer fnADf6-pRAACAuz6tgsIthhD6mg_OPXmSu3YXkqu`
-        authorization: `Bearer 330455b8c34538339d2dafaf02fe0d7439273bae`, // github
+        authorization: `Bearer 85a3b062db9be4f240bf9e9937737f014722bb87`, // github fireb1003 Svelte Planner
       },
     });
   },

@@ -2,15 +2,16 @@
   import Router from "svelte-spa-router";
   import Index from "./Index.svelte";
   import Nav from "./components/Nav.svelte";
+  import FaunaIndex from "./FaunaIndex.svelte";
   import PageEditor from "./components/pages/PageEditor.svelte";
   import { setClient } from "svelte-apollo";
   import { client } from "./graph/graph";
-  import { gitclient } from "./graph/gitgraph";
-  setClient(gitclient);
+  setClient(client);
 
   const routes = {
     "/": Index,
-    "/page/:_id": PageEditor
+    "/page/:_id": PageEditor,
+    "/fauna": FaunaIndex
   };
 </script>
 

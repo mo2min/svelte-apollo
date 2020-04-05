@@ -1,5 +1,5 @@
 <script>
-  import { getClient, query } from "svelte-apollo";
+  import { query } from "svelte-apollo";
   import SelectSite from "./components/sites/Select.svelte";
   import AddPage from "./components/pages/AddPage.svelte";
   import Pages from "./components/pages/Pages.svelte";

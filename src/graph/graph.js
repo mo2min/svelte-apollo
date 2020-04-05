@@ -6,8 +6,8 @@ export const client = new ApolloClient({
   request: (operation) => {
     operation.setContext({
       headers: {
-        //authorization: `Bearer fnADf6-pRAACAuz6tgsIthhD6mg_OPXmSu3YXkqu`
-        authorization: `Bearer fnADgd8KwmACC1ynjgxPDjFn_B4Fcse27yGKGUU6`,
+        //authorization: `Bearer fnADf6-pRAACAuz6tgsIthhD6mg_OPXmSu3YXkqu` // for aka_cms
+        authorization: `Bearer fnADgd8KwmACC1ynjgxPDjFn_B4Fcse27yGKGUU6`, // Fauna for sapperland
       },
     });
   },
