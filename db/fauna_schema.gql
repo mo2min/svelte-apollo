@@ -12,6 +12,7 @@ type Outline @collection(name: "outlines") {
 
 type Page @collection(name: "Pages") {
   page: String!
+  site: Site
   content: String
 }
 

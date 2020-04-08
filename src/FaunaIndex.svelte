@@ -4,10 +4,13 @@
   import AddPage from "./components/pages/AddPage.svelte";
   import Pages from "./components/pages/Pages.svelte";
   import { ALL_PAGES } from "./graph/pages";
-
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
   let client = getClient();
   let pages_q = getPages();
-
+  let selected_site = "262181209679856139";
+  let ctx_store = writable({ site_ref: selected_site });
+  setContext("ctx", ctx_store);
   function getPages() {
     return query(client, { query: ALL_PAGES, fetchPolicy: "network-only" });
   }
@@ -34,7 +37,11 @@
   </p>
 </div>
 
-<SelectSite />
+<SelectSite
+  selected={selected_site}
+  on:change_site={e => {
+    ctx_store.set({ site_ref: e.detail });
+  }} />
 
 {#await $pages_q}
   <p>.. loading</p>

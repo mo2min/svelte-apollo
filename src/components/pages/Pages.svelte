@@ -3,11 +3,12 @@
   import { DELETE_PAGE } from "../../graph/pages";
   import { createEventDispatcher } from "svelte";
   import { Confirm } from "svelte-confirm";
+  import { getContext } from "svelte";
 
   export let pages;
   const dispatch = createEventDispatcher();
   let client = getClient();
-
+  let site_ref = getContext("ctx");
   let src = "images/blank-page.svg";
   let greenPage = "images/blank-page-green.svg";
 
@@ -27,7 +28,7 @@
 </style>
 
 <div class="inline-flex ">
-  {(console.log(pages), '')}
+  {(console.log(pages), '')} Selected_Site: {$site_ref.site_ref}
   {#each pages as { _id, page, content }, i}
     <div class="flex-1 m-8">
       <a href="#/page/{_id}">

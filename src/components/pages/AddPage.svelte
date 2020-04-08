@@ -9,11 +9,12 @@
     console.log(page);
     await mutate(getClient(), {
       mutation: ADD_PAGE,
-      variables: { page: page, content: '' }
+      // STOP YOU USED ID INSTEAD OF REF ,,, good app should catch it !!?
+      variables: { page: page, content: "", site_ref: "262181209679856139" }
     });
-    dispatch('PAGE_ADDED_EVT', page );
-    page = '';
-	}
+    dispatch("PAGE_ADDED_EVT", page);
+    page = "";
+  }
 </script>
 
 <div>

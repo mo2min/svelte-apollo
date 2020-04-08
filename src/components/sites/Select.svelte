@@ -3,6 +3,9 @@
   import { ALL_SITES } from "../../graph/sites";
   import Modal from "../Modal.svelte";
   import ModalContent from "../ModalContent.svelte";
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+  export let selected;
   let result = query(getClient(), { query: ALL_SITES });
 </script>
 
@@ -13,6 +16,11 @@
     {(console.log(data), '')}
     <div class="inline-block relative w-64">
       <select
+        on:change={e => {
+          console.log(e.target.value);
+          dispatch('change_site', e.target.value);
+        }}
+        value={selected}
         class="block appearance-none w-full bg-white border border-gray-400
         hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight
         focus:outline-none focus:shadow-outline">

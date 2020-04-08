@@ -2,7 +2,6 @@
   import marked from "marked";
   import { createEventDispatcher } from "svelte";
   import nunjucks from "nunjucks";
-
   nunjucks.configure({ autoescape: true });
 
   const nunme = function(what) {

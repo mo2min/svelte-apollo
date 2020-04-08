@@ -2,7 +2,6 @@
   import { getClient, query, mutate } from "svelte-apollo";
   import { FIND_PAGE, UPDATE_PAGE } from "../../graph/pages";
   import Markdown from "../Markdown.svelte";
-
   export let params;
   let result = query(getClient(), {
     query: FIND_PAGE,
@@ -18,6 +17,7 @@
       Log
     </span>
     -->
+
   <Markdown
     title={data.data.findPageByID.page}
     md={data.data.findPageByID.content}

@@ -13,8 +13,10 @@ export const ALL_PAGES = gql`
 `;
 
 export const ADD_PAGE = gql`
-  mutation createPage($page: String!, $content: String!) {
-    createPage(data: { page: $page, content: $content }) {
+  mutation createPage($page: String!, $content: String!, $site_ref: ID!) {
+    createPage(
+      data: { page: $page, site: { connect: $site_ref }, content: $content }
+    ) {
       _id
     }
   }
